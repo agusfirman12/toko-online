@@ -30,5 +30,5 @@ Route::get('/checkout', \App\Livewire\Checkout::class)->name('checkout');
 Route::get('/history', \App\Livewire\history::class)->name('history');
 Route::get('/paymentSuccess/{id}', \App\Livewire\PaymentSuccess::class)->name('payment.success');
 
-Route::post('/midtrans/notification', [PaymentController::class, 'midtransNotification']);
+// Route::post('/midtrans/notification', [PaymentController::class, 'midtransNotification']);
 

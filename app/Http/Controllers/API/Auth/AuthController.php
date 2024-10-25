@@ -35,12 +35,44 @@ class AuthController extends Controller
 
         // Berikan respons dengan token
         return response()->json([
+            'success' => true,
             'message' => 'Login successful',
             'access_token' => $token,
             'token_type' => 'Bearer',
             'user' => $user,
         ], 200);
     }
+
+    public function register(Request $request){
+
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required',
+        ]);
+
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        $user = User::where('email', $request->email)->first();
+
+        if($request->phone != null || $request->address != null){
+            $user->update([
+                'handphone' => $request->handphone,
+                'address' => $request->address
+            ]);
+        }
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Registered successfully',
+            'user' => $user,
+        ]);
+    }
+
     /**
      * Handle logout request.
      */
