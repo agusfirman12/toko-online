@@ -7,6 +7,25 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Instalation 
+1. install all package from composer
+   
+```bash 
+composer install
+```
+2. copy file .env.example rename to .env
+3. buat database baru di mysql
+4. edit file .env pada bagian database, database username dan database password
+5. jalankan perintah untuk migrasi dan seeding
+```bash 
+php artisan migrate --seed
+```
+atau
+```bash
+php artisanmigrate:fresh --seed
+```
+   
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
