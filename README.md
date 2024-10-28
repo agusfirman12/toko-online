@@ -24,6 +24,10 @@ atau
 ```bash
 php artisanmigrate:fresh --seed
 ```
+6. jalanakan perintah untuk storage link
+```bash
+php artisan storage link
+```
    
 
 ## About Laravel
