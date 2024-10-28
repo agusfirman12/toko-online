@@ -50,6 +50,8 @@ class CreateProductModal extends Component
 
         session()->flash('success', 'Product created successfully');
 
+        $this->dispatch('closeModal');
+
         $this->dispatch('updateListProducts');
         
     }

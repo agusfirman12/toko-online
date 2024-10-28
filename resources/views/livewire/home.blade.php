@@ -14,7 +14,7 @@
 </style>
 <div class="container">
     <div class="banner">
-        <div class="image-container mt-3 rounded-3">
+        <div class="image-container mt-3 rounded-3 relative">
             <img class="image-custom" src="{{ asset('/assets/image/grocery-bg.jpg') }}">
         </div>
     </div>

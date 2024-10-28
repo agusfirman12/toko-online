@@ -71,3 +71,12 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('livewire:load', function() {
+        Livewire.on('closeModal', () => {
+            const modal = new bootstrap.Modal(document.getElementById('addProductModal'));
+            modal.hide();
+        });
+    });
+</script>

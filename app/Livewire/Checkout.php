@@ -53,6 +53,13 @@ class Checkout extends Component
         session()->flash('success', 'Berhasil checkout!');
     }
 
+    public function paymentSuccess(){
+        $cart = Transaction::where('user_id', auth()->user()->id)->where('status', 0)->first();
+        $cart->status = 1;
+        $cart->update();
+        return redirect()->route('home');
+    }
+
     public function render()
     {
         return view('livewire.checkout');
