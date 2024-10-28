@@ -10,6 +10,18 @@ use Illuminate\Support\Facades\Request;
 
 class Cart extends Controller
 {
+
+     public function __construct()
+    {
+        \Midtrans\Config::$serverKey = config('midtrans.server_key');
+        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        \Midtrans\Config::$isProduction = false;
+        // Set sanitization on (default)
+        \Midtrans\Config::$isSanitized = true;
+        // Set 3DS transaction for credit card to true
+        \Midtrans\Config::$is3ds = true;
+    }
+
     public function index()
     {
         $cart = Transaction::where('user_id', auth()->user()->id)->where('status', 0)->first();

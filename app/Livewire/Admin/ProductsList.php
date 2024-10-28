@@ -10,7 +10,6 @@ use Livewire\WithoutUrlPagination;
 
 class ProductsList extends Component
 {
-    use WithPagination, WithoutUrlPagination;
 
     public $name, $price, $description, $weight, $image;
     public $category_id;
@@ -44,7 +43,7 @@ class ProductsList extends Component
     #[On('updateListProducts')]
     public function render()
     {
-        $products = Product::with('category')->paginate(3);
+        $products = Product::with('category')->paginate(5);
         return view('livewire.admin.products-list', compact('products'));
     }
 }
