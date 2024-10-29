@@ -18,7 +18,7 @@ class LoginForm extends Form
     public function login(){
         if (Auth::attempt($this->validate())) {
             if(Auth::user()->HasRole('admin')){
-                return redirect()->route('admin.dashboard');
+                return redirect('/admin');
             }elseif(Auth::user()->HasRole('seller')){
                 return redirect()->route('seller.dashboard');
             }

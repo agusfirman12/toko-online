@@ -30,6 +30,15 @@ class AuthController extends Controller
             ], 401);
         }
 
+        $data = [
+            'id' => $user->id,
+            'email' => $user->email,
+            'name' => $user->name,
+            'handphone' => $user->handphone,
+            'address' => $user->address,
+            'role' => $user->getRoleNames()
+        ];
+
         // Generate token untuk autentikasi
         $token = $user->createToken('authToken')->plainTextToken;
 
@@ -39,7 +48,7 @@ class AuthController extends Controller
             'message' => 'Login successful',
             'access_token' => $token,
             'token_type' => 'Bearer',
-            'user' => $user,
+            'user' => $data,
         ], 200);
     }
 
