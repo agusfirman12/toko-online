@@ -10,12 +10,18 @@ use App\Models\Transaction;
 use Filament\Resources\Resource;
 use Filament\Tables\Filters\Filter;
 use App\Filament\Resources\TransactionResource\Pages;
+use Filament\Forms\Components\Tabs\Tab;
 
 class TransactionResource extends Resource
 {
     protected static ?string $model = Transaction::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-currency-dollar';
+
+    public static function canCreate(): bool
+    {
+        return false;
+    }
 
     public static function form(Form $form): Form
     {
@@ -32,13 +38,17 @@ class TransactionResource extends Resource
                 Tables\Columns\TextColumn::make('transaction_code')
                     ->label('transaction code')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('user.name')
+                    ->label('username'),
                 Tables\Columns\TextColumn::make('price_total')
                     ->label('total price')
                     ->formatStateUsing(fn ($state) => 'Rp. ' . number_format($state, 0, ',', '.')),
                 Tables\Columns\TextColumn::make('transaction_detile.transaction_total')
                     ->label('quantity'),
                 Tables\Columns\TextColumn::make('transaction_detile.product.name'),
-
+                Tables\Columns\TextColumn::make('created_at')
+                    ->label('tanggal transaksi')
+                    ->dateTime(),
             ])
             ->filters([
                 //

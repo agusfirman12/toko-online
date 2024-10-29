@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
                 @if (auth()->user()->hasRole('admin'))
-                    <x-nav-link :active="request()->routeIs('admin.dahsboard')" :href="route('admin.dashboard')">Dashboard</x-nav-link>
+                    <x-nav-link :active="request()->routeIs('admin.dahsboard')" href="/admin">Dashboard</x-nav-link>
                 @else
                     <x-nav-link :active="request()->routeIs('dashboard')" :href="route('dashboard')">Dashboard</x-nav-link>
                 @endif

@@ -48,8 +48,7 @@
 
                         <ul class="dropdown-menu">
                             @if (Auth::user()->HasRole('admin'))
-                                <li><a class="dropdown-item" wire:navigate
-                                        href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                                <li><a class="dropdown-item" href="/admin">Dashboard</a></li>
                             @elseif(Auth::User()->HasRole('seller'))
                                 <li><a class="dropdown-item" wire:navigate
                                         href="{{ route('seller.dashboard') }}">Dashboard</a></li>
